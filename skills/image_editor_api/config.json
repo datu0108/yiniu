@@ -1,0 +1,12 @@
+{
+  "api_base": "https://www.packyapi.com",
+  "api_path": "/v1beta/models/gemini-2.5-flash-image:generateContent",
+  "protocol": "gemini",
+  "model": "gemini-2.5-flash-image",
+  "api_key_env": "LLM_API_KEY",
+  "max_tokens": 4096,
+  "default_prompt": "去除图片上的水印、文字和多余人物，自然修复背景，不添加新物体。",
+  "max_image_bytes": 10485760,
+  "api_timeout_seconds": 600,
+  "dry_run": false
+}

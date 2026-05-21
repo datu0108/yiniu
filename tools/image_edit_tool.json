@@ -1,0 +1,34 @@
+{
+  "name": "edit_image",
+  "description": "使用 deepseek-v4-flash（OpenAI /v1/chat/completions）编辑图片。每次调用消耗 API 额度。",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "image": {
+        "type": "string",
+        "description": "输入图片的本地路径"
+      },
+      "prompt": {
+        "type": "string",
+        "description": "编辑指令，例如：去掉所有文字和小男孩，只保留面料背景"
+      },
+      "output_path": {
+        "type": "string",
+        "description": "可选，输出文件路径"
+      },
+      "mode": {
+        "type": "string",
+        "enum": ["direct", "http"],
+        "description": "direct=直连 API；http=走本地服务 http://127.0.0.1:8780",
+        "default": "direct"
+      }
+    },
+    "required": ["image", "prompt"]
+  },
+  "invocation": {
+    "python": "from scripts.image_model_tool import process_image; process_image(image, prompt)",
+    "cli": "python scripts/image_model_tool.py run --image <path> --prompt <text>",
+    "cli_json": "echo '{\"image\":\"path.png\",\"prompt\":\"...\"}' | python scripts/image_model_tool.py json",
+    "http": "POST http://127.0.0.1:8780/process  (multipart: image, prompt)"
+  }
+}

@@ -1,0 +1,10 @@
+启动 Chrome（调试端口 9222）
+配置目录: /Users/datu/.1688_chrome_debug
+
+接下来请在此 Chrome 里：
+  1. 打开 1688 并登录（可选）
+  2. 搜索你的关键词，完成滑块
+  3. 另开终端运行:
+     .venv/bin/python scripts/1688_main_images.py -k 你的关键词 -n 20
+
+正在现有的浏览器会话中打开。
